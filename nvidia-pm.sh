@@ -5,9 +5,10 @@ if [ "$1" = "" ]; then
     exit 1
 fi
 
-nvidia-smi -pm 1
 if [ "$2" = "" ]; then
+    nvidia-smi -pm 1
     nvidia-smi -pl "$1"
 else
+    nvidia-smi -i "$2" -pm 1
     nvidia-smi -i "$2" -pl "$1"
 fi
